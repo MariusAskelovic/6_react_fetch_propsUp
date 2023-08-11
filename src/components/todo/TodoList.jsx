@@ -97,7 +97,8 @@ export default function TodoList() {
                         key={tObj.id}
                         item={tObj}
                         onDelete={() => handleDelete(tObj.id)}
-                        onToggle={() => handleToggleTodo(tObj.id)}
+                        onToggle={handleToggleTodo}
+                    // onToggle={() => handleToggleTodo(tObj.id)} 
                     />
                 ))}
             </ul>
