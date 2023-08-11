@@ -4,7 +4,7 @@ export default function TodoItem(props) {
     return (
         <li>
             <span
-                onClick={() => { }}
+                onClick={() => { props.onToggle(id) }}
                 className={isDone ? 'finished pointer' : 'pointer'}
                 role='button'
             >
