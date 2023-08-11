@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import TodoItem from './TodoItem';
+import './todoList.scss';
+import AddTodo from './AddTodo';
+
 
 const initTodos = [
     { id: 1, title: 'Do pushups', isDone: false },
@@ -21,11 +24,9 @@ Labai svarbu!!! Nemodifikuoti mainTodoArr
 
 export default function TodoList() {
     const [mainTodoArr, setMainTodoArr] = useState(initTodos);
-    const [newTodoTitle, setNewTodoTitle] = useState('');
 
-    function inputTodo(event) {
-        setNewTodoTitle(event.target.value);
-    }
+
+
 
     function handleDelete(idToDelete) {
         console.log('lets delete', idToDelete);
@@ -37,11 +38,11 @@ export default function TodoList() {
     }
 
     // handleAddTodo
-    function handleAddTodo() {
+    function handleAddTodo(newTodoValue) {
         // paimti input reiksme
         // sukurti nauja todoObjasdasdasdasd
         const newId = Math.random().toString().slice(4, 9);
-        const newTodoObj = { id: newId, title: newTodoTitle, isDone: false };
+        const newTodoObj = { id: newId, title: newTodoValue, isDone: false };
         console.log('newTodoObj ===', newTodoObj);
         // atnaujinti state su tuo todoObj nekeician tiesiogiai mainTodoArr
 
@@ -77,20 +78,12 @@ export default function TodoList() {
     }
 
     return (
-        <div>
+        <div className='todoList'>
             <h2>Todo list</h2>
 
-            <fieldset>
-                <legend>Add Todo</legend>
-                <input
-                    onChange={inputTodo}
-                    value={newTodoTitle}
-                    type='text'
-                    placeholder='new todo'
-                />
-                <button onClick={handleAddTodo}>Add</button>
-            </fieldset>
-            {mainArrayEmpty && <h2>Nera nei vieno todo, pridekite nauja</h2>}
+            <AddTodo onAddTodo={handleAddTodo} />
+
+            {mainArrayEmpty && <h2 className='neraMsg'>Nera nei vieno todo, pridekite nauja</h2>}
             <ul>
                 {mainTodoArr.map((tObj) => (
                     <TodoItem
