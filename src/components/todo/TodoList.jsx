@@ -93,7 +93,10 @@ export default function TodoList() {
             {mainArrayEmpty && <h2>Nera nei vieno todo, pridekite nauja</h2>}
             <ul>
                 {mainTodoArr.map((tObj) => (
-                    <TodoItem key={tObj.id} item={tObj} onTest={handleDelete} />
+                    <TodoItem
+                        key={tObj.id}
+                        item={tObj}
+                        onDelete={() => handleDelete(tObj.id)} />
                 ))}
             </ul>
         </div>

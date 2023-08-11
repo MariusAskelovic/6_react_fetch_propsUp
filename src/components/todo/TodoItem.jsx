@@ -10,7 +10,8 @@ export default function TodoItem(props) {
             >
                 {title}
             </span>{' '}
-            <button onClick={() => props.onTest(id)}>Delete</button>
+            <button onClick={() => props.onDelete(id)}>Delete</button>
+            {/* <button onClick={props.onTest}>Delete</button> */}
         </li>
     );
 }
