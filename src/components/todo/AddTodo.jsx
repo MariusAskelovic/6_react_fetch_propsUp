@@ -7,6 +7,12 @@ export default function AddTodo(props) {
         setNewTodoTitle(event.target.value);
     }
 
+    function handleNewTodoInput() {
+        if (newTodoTitle === '') return
+        props.onAddTodo(newTodoTitle)
+        setNewTodoTitle('')
+    }
+
     return (
         <fieldset>
             <legend>Add Todo</legend>
@@ -16,7 +22,7 @@ export default function AddTodo(props) {
                 type='text'
                 placeholder='new todo'
             />
-            <button onClick={() => props.onAddTodo(newTodoTitle)}>Add</button>
+            <button onClick={handleNewTodoInput}>Add</button>
         </fieldset>
     )
 }
