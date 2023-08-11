@@ -7,7 +7,7 @@ const initTodos = [
     { id: 4, title: 'Go to park', isDone: false },
 ];
 
-export default function Todo() {
+export default function TodoList() {
     const [mainTodoArr, setMainTodoArr] = useState(initTodos);
     const [newTodoTitle, setNewTodoTitle] = useState('');
 
