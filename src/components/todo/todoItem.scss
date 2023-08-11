@@ -1,14 +1,14 @@
 .todoItem {
-  .red {
-    background-color: tomato;
-    color: white;
+  .finished {
+    color: gray;
+    text-decoration: line-through;
   }
   .pointer {
     cursor: pointer;
     font-size: 18px;
   }
-  .finished {
-    color: gray;
-    text-decoration: line-through;
+  .red {
+    background-color: tomato;
+    color: white;
   }
 }
